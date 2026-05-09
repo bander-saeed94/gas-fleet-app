@@ -1,0 +1,40 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - heading "Gas Fleet Routing" [level=1] [ref=e5]
+    - paragraph [ref=e6]: Click on the canvas to add a station. Right-click to delete. Shift-drag to pan, mouse-wheel to zoom.
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Number of trucks
+        - spinbutton [ref=e10]: "3"
+      - generic [ref=e11]:
+        - generic [ref=e12]: Truck capacity (L)
+        - spinbutton [ref=e13]: "5000"
+      - generic [ref=e14]:
+        - generic [ref=e15]: Solver
+        - generic [ref=e16]:
+          - button "Classical" [ref=e17] [cursor=pointer]
+          - button "QAOA" [ref=e18] [cursor=pointer]
+      - generic [ref=e19]: 0 station(s) placed
+      - generic [ref=e20]:
+        - button "Solve" [ref=e21] [cursor=pointer]
+        - button "Clear" [ref=e22] [cursor=pointer]
+  - main [ref=e23]:
+    - img [ref=e24]:
+      - generic [ref=e28]: D
+    - generic [ref=e29]:
+      - button "Play" [disabled] [ref=e30]
+      - generic [ref=e31]:
+        - text: Speed
+        - slider "Speed 1.00×" [ref=e32]: "1"
+        - generic [ref=e33]: 1.00×
+      - button "Export JSON" [disabled] [ref=e34]
+      - button "Export PNG" [disabled] [ref=e35]
+  - complementary [ref=e36]:
+    - generic [ref=e37]: No solution yet — click Solve.
+    - separator [ref=e38]
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]: History
+        - button "Refresh" [ref=e42] [cursor=pointer]
+      - generic [ref=e43]: No past solves yet.
+      - list

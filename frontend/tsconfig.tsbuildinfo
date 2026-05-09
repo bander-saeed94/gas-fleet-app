@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/api/client.ts","./src/components/historypanel.tsx","./src/components/inputform.tsx","./src/components/routesummary.tsx","./src/components/xycanvas.tsx","./src/store/store.ts","./src/test/xycanvas.test.tsx","./src/test/setup.ts"],"version":"5.9.3"}

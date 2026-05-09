@@ -1,0 +1,108 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img [ref=e8]
+        - generic [ref=e12]:
+          - heading "Gas Fleet Routing" [level=1] [ref=e13]
+          - paragraph [ref=e14]: Plan delivery routes with classical or quantum (QAOA) solvers
+      - generic [ref=e15]:
+        - generic [ref=e16]: Stations0
+        - generic [ref=e17]: Demand0
+        - generic [ref=e18]: StatusIdle
+  - generic [ref=e19]:
+    - complementary [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic [ref=e23]: Setup
+          - paragraph [ref=e24]: Click on the canvas to add a station. Right-click to delete. Shift-drag to pan, mouse-wheel to zoom.
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27]:
+              - img [ref=e29]
+              - generic [ref=e33]: Trucks
+            - spinbutton "Trucks" [ref=e34]: "3"
+          - generic [ref=e35]:
+            - generic [ref=e36]:
+              - img [ref=e38]
+              - generic [ref=e40]: Capacity (L)
+            - spinbutton "Capacity (L)" [ref=e41]: "5000"
+        - generic [ref=e42]:
+          - generic [ref=e43]: Solver
+          - generic [ref=e44]:
+            - button "Classical Heuristic / OR-Tools" [ref=e45] [cursor=pointer]:
+              - generic [ref=e46]: Classical
+              - generic [ref=e47]: Heuristic / OR-Tools
+            - button "QAOA Quantum-inspired" [ref=e48] [cursor=pointer]:
+              - generic [ref=e49]: QAOA
+              - generic [ref=e50]: Quantum-inspired
+        - generic [ref=e52]:
+          - generic [ref=e53]: Demand vs. fleet capacity
+          - generic [ref=e54]: 0 / 15,000
+        - generic [ref=e57]: 0 station(s) placed
+        - generic [ref=e58]:
+          - button "Solve" [disabled] [ref=e59]:
+            - img [ref=e60]
+            - text: Solve
+          - button "Clear" [ref=e62] [cursor=pointer]:
+            - img [ref=e63]
+            - text: Clear
+    - main [ref=e65]:
+      - generic [ref=e66]:
+        - img [ref=e67]:
+          - generic [ref=e70]:
+            - generic [ref=e71]: "-10"
+            - generic [ref=e72]: "-8"
+            - generic [ref=e73]: "-6"
+            - generic [ref=e74]: "-4"
+            - generic [ref=e75]: "-2"
+            - generic [ref=e76]: "2"
+            - generic [ref=e77]: "4"
+            - generic [ref=e78]: "6"
+            - generic [ref=e79]: "8"
+            - generic [ref=e80]: "10"
+            - generic [ref=e81]: "-10"
+            - generic [ref=e82]: "-5"
+            - generic [ref=e83]: "5"
+            - generic [ref=e84]: "10"
+          - generic:
+            - generic: D
+            - generic: Depot
+          - generic:
+            - generic: Click anywhere to add a station
+            - generic: Right-click to delete · Shift-drag to pan · Scroll to zoom
+        - generic [ref=e85]:
+          - button "Zoom in" [ref=e86] [cursor=pointer]:
+            - img [ref=e87]
+          - button "Zoom out" [ref=e89] [cursor=pointer]:
+            - img [ref=e90]
+          - button "Reset view" [ref=e91] [cursor=pointer]:
+            - img [ref=e92]
+        - generic [ref=e95]: 100%
+      - generic [ref=e96]:
+        - button "Play" [disabled] [ref=e97]:
+          - img [ref=e98]
+          - text: Play
+        - generic [ref=e100]:
+          - generic [ref=e101]: Speed
+          - slider "Speed 1.00×" [ref=e102]: "1"
+          - generic [ref=e103]: 1.00×
+        - button "JSON" [disabled] [ref=e105]:
+          - img [ref=e106]
+          - text: JSON
+        - button "PNG" [disabled] [ref=e109]:
+          - img [ref=e110]
+          - text: PNG
+    - complementary [ref=e114]:
+      - generic [ref=e115]:
+        - generic [ref=e116]: Solution
+        - generic [ref=e117]: No solution yet — click Solve.
+      - separator [ref=e118]
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]: History
+          - button "Refresh" [disabled] [ref=e122]:
+            - img [ref=e123]
+            - text: Refresh
+        - generic [ref=e126]: Loading…
+        - list

@@ -1,0 +1,24 @@
+[     185ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-XPR23Y44.js?v=2f808839:21548
+[     192ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[     193ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[     206ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[     206ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[     223ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[     223ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   21336ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   21337ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   33411ms] [LOG] [softDelete] {id: 1, victim: Object, currentlyDeleted: null} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:126
+[   33413ms] [LOG] [render] recentlyDeleted= {id: 1, x: -8, y: 0.5, demand: 1500} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   33414ms] [LOG] [render] recentlyDeleted= {id: 1, x: -8, y: 0.5, demand: 1500} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   38413ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   38414ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   89646ms] [LOG] [softDelete] {id: 2, victim: Object, currentlyDeleted: null} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:126
+[   89649ms] [LOG] [render] recentlyDeleted= {id: 2, x: -4, y: -0.4, demand: 1100} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   89649ms] [LOG] [render] recentlyDeleted= {id: 2, x: -4, y: -0.4, demand: 1100} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   94649ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[   94649ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[  146252ms] [LOG] [softDelete] {id: 3, victim: Object, currentlyDeleted: null} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:126
+[  146255ms] [LOG] [render] recentlyDeleted= {id: 3, x: 4, y: 0.7, demand: 1300} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[  146256ms] [LOG] [render] recentlyDeleted= {id: 3, x: 4, y: 0.7, demand: 1300} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[  151257ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
+[  151258ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80

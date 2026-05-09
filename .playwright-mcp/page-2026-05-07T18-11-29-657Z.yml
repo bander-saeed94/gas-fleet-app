@@ -1,0 +1,12 @@
+- generic [ref=e3]:
+  - generic [ref=e4]: Unable to parse HTML; parse5 error code eof-in-tag at /app/index.html:10:102 8 | rel="icon" 9 | type="image/svg+xml" 10 | href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs | ^
+  - generic [ref=e5]: at /app/index.html:10:102 at handleParseError (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:35172:9) at Parser.onParseError (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:35097:7) at Tokenizer._err (file:///app/node_modules/vite/dist/node/chunks/dep-D-7KCb9p.js:1155:89) at Tokenizer._stateAttributeValueDoubleQuoted (file:///app/node_modules/vite/dist/node/chunks/dep-D-7KCb9p.js:2647:22) at Tokenizer._callState (file:///app/node_modules/vite/dist/node/chunks/dep-D-7KCb9p.js:1654:22) at Tokenizer._runParsingLoop (file:///app/node_modules/vite/dist/node/chunks/dep-D-7KCb9p.js:1179:22) at Tokenizer.write (file:///app/node_modules/vite/dist/node/chunks/dep-D-7KCb9p.js:1204:14) at Parser.parse (file:///app/node_modules/vite/dist/node/chunks/dep-D-7KCb9p.js:4886:26) at parse (file:///app/node_modules/vite/dist/node/chunks/dep-D-7KCb9p.js:7957:19) at traverseHtml (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:35092:15) at async devHtmlHook (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62332:3) at async applyHtmlTransforms (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:35875:17) at async viteIndexHtmlMiddleware (file:///app/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62496:20
+  - generic [ref=e6]:
+    - text: Click outside, press Esc key, or fix the code to dismiss.
+    - text: You can also disable this overlay by setting
+    - code [ref=e7]: server.hmr.overlay
+    - text: to
+    - code [ref=e8]: "false"
+    - text: in
+    - code [ref=e9]: vite.config.ts
+    - text: .
