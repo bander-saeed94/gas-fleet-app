@@ -15,6 +15,7 @@ the full motivation.
 from __future__ import annotations
 
 import logging
+import time
 from typing import Literal
 
 import numpy as np
@@ -35,8 +36,6 @@ def _try_import_qaoa() -> bool:
         from nd_qaoa.qaoa import (  # noqa: F401
             best_bitstring,
             optimize_qaoa,
-            qaoa_circuit,
-            bind_params,
         )
         from qaoa_common.vrp_problem import VRPInstance  # noqa: F401
 
@@ -110,12 +109,7 @@ def _solve_with_qaoa(
     adam_pshift_step: float,
 ) -> CVRPSolution:
     from nd_qaoa.problems.vrp import extract_vrp_solution, vrp_hamiltonian
-    from nd_qaoa.qaoa import (
-        bind_params,
-        best_bitstring,
-        optimize_qaoa,
-        qaoa_circuit,
-    )
+    from nd_qaoa.qaoa import best_bitstring, optimize_qaoa
     from qaoa_common.vrp_problem import VRPInstance as RepoVRPInstance
 
     n = len(instance.stations)
@@ -136,14 +130,14 @@ def _solve_with_qaoa(
     # Build the cost. ``normalize_weights=True`` divides every term's
     # coefficient by ``max_t |c_t|``; the original scale is kept on
     # ``cost.weight_scale`` so we can rescale energies after optimization.
+    t0 = time.perf_counter()
     cost = vrp_hamiltonian(vrp, normalize_weights=normalize_weights)
     weight_scale = float(getattr(cost, "weight_scale", 1.0))
-    # The statevector evaluator is exact but builds a 2^N-amplitude state on
-    # every parameter-update step; past ~16 qubits that's intractable inside
-    # an HTTP request. Switch to the sampling evaluator (qiskit-aer C++) for
-    # larger problems — noisier per-step estimates, but seconds per call
-    # instead of minutes.
-    evaluator = "statevector" if cost.num_qubits <= 16 else "sampler"
+    n_terms = len(cost.paulis) if hasattr(cost, "paulis") else 0
+    log.info(
+        "[qaoa-timing] cost build: %.3fs (qubits=%d, terms=%d, normalize=%s)",
+        time.perf_counter() - t0, cost.num_qubits, n_terms, normalize_weights,
+    )
 
     # Map UI optimizer names. Anything other than the special
     # ``adam_pshift`` is forwarded to scipy.optimize.minimize.
@@ -154,43 +148,41 @@ def _solve_with_qaoa(
             n_epochs=adam_epochs, lr=adam_lr, pshift_step=adam_pshift_step,
         )
 
+    # ``optimize_qaoa`` auto-selects ``"statevector"`` below 16 qubits and
+    # ``"sampler"`` above (see Edit-QNN-Enhancements-Native-Support-Prompt
+    # task 1) — no need to compute the threshold here.
+    t1 = time.perf_counter()
     result = optimize_qaoa(
         cost,
         p=p,
         method=method,
-        evaluator=evaluator,
         shots=shots,
         reupload=reupload,
         observable_mode=observable_mode,
         **opt_kwargs,
     )
+    log.info(
+        "[qaoa-timing] optimize_qaoa: %.3fs (method=%s, p=%d, reupload=%s, "
+        "observable=%s, shots=%d, energy=%.6g)",
+        time.perf_counter() - t1, method, p, reupload, observable_mode,
+        shots, float(result.energy),
+    )
 
-    # Re-bind the optimized state for sampling. When ``reupload=True`` the
-    # ``best_bitstring`` helper alone isn't enough — it builds a standard
-    # QAOA circuit from γ, β only — so for re-uploading we sample directly
-    # from the bound circuit instead.
-    if reupload:
-        from app.solver.distance import distance_matrix  # noqa: F401  (used above)
-        # ``cost`` here is the *base* (un-α'd) cost; the QAOA circuit
-        # depends only on its diagonal-Pauli structure, not on α.
-        qc, gp, bp, wp_p, bp_p, wm_p, bm_p = qaoa_circuit(
-            cost, p, measure=True, reupload=True,
-        )
-        bound = bind_params(
-            qc, gp, bp, result.gammas, result.betas,
-            w_phase=wp_p, b_phase=bp_p, w_mix=wm_p, b_mix=bm_p,
-            w_phase_vals=result.w_phase, b_phase_vals=result.b_phase,
-            w_mix_vals=result.w_mix, b_mix_vals=result.b_mix,
-        )
-        from nd_qaoa.qaoa.expectation import sample_bitstrings
-        from nd_qaoa.qaoa.expectation import _diag_eigs  # noqa: F401
+    # ``best_bitstring(cost, result, ...)`` rebuilds the right circuit and
+    # binds every re-uploading parameter automatically — no manual
+    # qaoa_circuit / bind_params dance required.
+    t2 = time.perf_counter()
+    bits, _ = best_bitstring(cost, result, shots=shots)
+    log.info(
+        "[qaoa-timing] best_bitstring: %.3fs", time.perf_counter() - t2,
+    )
 
-        counts = sample_bitstrings(bound, shots=shots)
-        diag = _diag_eigs(cost)
-        bits = min(counts, key=lambda b: diag[int(b.replace(' ', ''), 2)])
-    else:
-        bits, _ = best_bitstring(cost, result.gammas, result.betas, shots=shots)
+    t3 = time.perf_counter()
     routes = extract_vrp_solution(vrp, bits, repair=True)
+    log.info(
+        "[qaoa-timing] extract_vrp_solution: %.3fs (total wall %.3fs)",
+        time.perf_counter() - t3, time.perf_counter() - t0,
+    )
 
     sol = _routes_to_solution(instance, routes, dist, demand)
     # Surface the new knobs and the rescaled energy so the UI / tests can
