@@ -2,7 +2,7 @@
 
 A standalone web app that solves a daily **Capacitated Vehicle Routing Problem
 (CVRP)** for a fleet of gasoline trucks and visualizes the resulting routes
-interactively. The QAOA implementation in [`qaoa-repo`](../qaoa-repo) is
+interactively. The QAOA implementation in [`qaoa-repo`](https://github.com/bander-saeed94/distributed-QAOA.git) is
 consumed as an installable library; **nothing in `qaoa-repo` is modified**.
 
 ## Architecture
