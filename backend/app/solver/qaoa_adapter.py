@@ -9,8 +9,7 @@ classical solver and tag the response so the UI can show what happened.
 The adapter exposes the QNN-VQC enhancements ported into ``nd_qaoa``:
 data re-uploading, trainable per-term observable weights, weight
 normalization, and the Adam + parameter-shift optimizer (Kingma & Ba,
-2015 + Schuld et al., 2019). See ``Add-QNN-Enhancements-Prompt.md`` for
-the full motivation.
+2015 + Schuld et al., 2019).
 """
 from __future__ import annotations
 
@@ -149,8 +148,7 @@ def _solve_with_qaoa(
         )
 
     # ``optimize_qaoa`` auto-selects ``"statevector"`` below 16 qubits and
-    # ``"sampler"`` above (see Edit-QNN-Enhancements-Native-Support-Prompt
-    # task 1) — no need to compute the threshold here.
+    # ``"sampler"`` above — no need to compute the threshold here.
     t1 = time.perf_counter()
     result = optimize_qaoa(
         cost,

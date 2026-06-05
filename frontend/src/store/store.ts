@@ -5,7 +5,7 @@ export type QaoaParams = {
   p: number;
   shots: number;
   optimizer: string;
-  // QNN-VQC enhancements (Add-QNN-Enhancements-Prompt.md)
+  // QNN-VQC enhancements
   reupload?: boolean;
   observable_mode?: "fixed" | "trainable";
   normalize_weights?: boolean;

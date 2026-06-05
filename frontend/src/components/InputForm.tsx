@@ -282,7 +282,7 @@ export default function InputForm({ onSolved }: { onSolved?: () => void }) {
                     ))}
                   </div>
                 </div>
-                {/* QNN-VQC enhancements (Add-QNN-Enhancements-Prompt.md) */}
+                {/* QNN-VQC enhancements */}
                 <div className="pt-1.5 mt-1.5 border-t border-indigo-100">
                   <div className="text-[10.5px] uppercase tracking-wide text-indigo-700/80 font-medium mb-1">
                     QNN-VQC enhancements

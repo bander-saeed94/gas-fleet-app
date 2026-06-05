@@ -2,7 +2,7 @@
 
 The two-opt pass is run on each individual truck route after savings has
 produced a feasible assignment. This gives a strong, deterministic baseline
-suitable for the < 5s/10-station target in the prompt's acceptance criteria.
+suitable for the < 5s/10-station target.
 """
 from __future__ import annotations
 

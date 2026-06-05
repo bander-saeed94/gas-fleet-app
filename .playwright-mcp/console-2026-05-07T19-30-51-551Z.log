@@ -1,6 +1,0 @@
-[     210ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:5173/node_modules/.vite/deps/chunk-XPR23Y44.js?v=2f808839:21548
-[   39859ms] [LOG] [softDelete] {id: 1, victim: Object, currentlyDeleted: null} @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182236826:125
-[   95956ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
-[   95957ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
-[   95958ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80
-[   95959ms] [LOG] [render] recentlyDeleted= null @ http://localhost:5173/src/components/XYCanvas.tsx?t=1778182347198:80

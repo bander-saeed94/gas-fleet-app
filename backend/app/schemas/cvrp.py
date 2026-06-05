@@ -26,8 +26,7 @@ class QAOAParams(BaseModel):
     """Tunable parameters for the QAOA solver path.
 
     The first three fields are the original (classical-style) levers; the
-    rest expose the QNN-VQC enhancements ported in
-    ``Add-QNN-Enhancements-Prompt.md``:
+    rest expose the QNN-VQC enhancements:
 
     * ``reupload`` — multi-angle / data-re-uploading ansatz (per-term
       ``w_phase, b_phase`` and per-qubit ``w_mix, b_mix``).
